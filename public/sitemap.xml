@@ -2,41 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:39209/vaportiser-news/posts/new-vape-review/</loc>
+    <loc>http://localhost:1313/vaportiser-news/posts/new-vape-review/</loc>
     <lastmod>2025-07-12T20:13:18+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:39209/vaportiser-news/posts/</loc>
+    <loc>http://localhost:1313/vaportiser-news/posts/</loc>
     <lastmod>2025-07-12T20:13:18+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:39209/vaportiser-news/</loc>
+    <loc>http://localhost:1313/vaportiser-news/</loc>
     <lastmod>2025-07-12T20:13:18+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:39209/vaportiser-news/categories/</loc>
+    <loc>http://localhost:1313/vaportiser-news/categories/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:39209/vaportiser-news/tags/elux/</loc>
+    <loc>http://localhost:1313/vaportiser-news/tags/elux/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:39209/vaportiser-news/posts/test/</loc>
+    <loc>http://localhost:1313/vaportiser-news/posts/test/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:39209/vaportiser-news/posts/my-first-post/</loc>
+    <loc>http://localhost:1313/vaportiser-news/posts/my-first-post/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:39209/vaportiser-news/tags/pod-kit/</loc>
+    <loc>http://localhost:1313/vaportiser-news/tags/pod-kit/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:39209/vaportiser-news/tags/prefilled/</loc>
+    <loc>http://localhost:1313/vaportiser-news/tags/prefilled/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:39209/vaportiser-news/categories/product-reviews/</loc>
+    <loc>http://localhost:1313/vaportiser-news/categories/product-reviews/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:39209/vaportiser-news/tags/</loc>
+    <loc>http://localhost:1313/vaportiser-news/tags/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:39209/vaportiser-news/archives/</loc>
+    <loc>http://localhost:1313/vaportiser-news/archives/</loc>
   </url><url>
-    <loc>http://localhost:39209/vaportiser-news/search/</loc>
+    <loc>http://localhost:1313/vaportiser-news/search/</loc>
   </url>
 </urlset>

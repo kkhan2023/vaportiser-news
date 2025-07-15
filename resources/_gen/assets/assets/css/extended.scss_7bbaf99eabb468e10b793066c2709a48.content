@@ -7,7 +7,7 @@ color candidates:
 #7BCFA6 玉色
 */
 body.type-essays {
-  --signature: #48c0a3;
+  --signature: #48C0A3;
   --signature-bg: rgba(72, 192, 164, 0.427);
   --siguature-bg-dim: rgba(72, 192, 164, 0.298);
   --link-hover-color: var(--signature);

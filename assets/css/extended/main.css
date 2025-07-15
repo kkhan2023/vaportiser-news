@@ -10,7 +10,7 @@
   padding: 20px 25px;
   border: 1px solid var(--primary);
   border-radius: var(--radius);
-  background: url("/images/banner.webp") center right / cover no-repeat fixed;
+  background: url("../images/banner.webp") center right / cover no-repeat fixed;
   color: #fff;
   overflow: hidden;
 }
