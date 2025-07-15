@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on Vaportiser News</title>
-    <link>http://localhost:35265/posts/</link>
+    <link>http://localhost:39209/vaportiser-news/posts/</link>
     <description>Recent content in Posts on Vaportiser News</description>
     <image>
-      <url>http://localhost:35265/images/vaportiser-logo.svg</url>
-      <link>http://localhost:35265/images/vaportiser-logo.svg</link>
+      <url>http://localhost:39209/vaportiser-news/images/vaportiser-logo.svg</url>
+      <link>http://localhost:39209/vaportiser-news/images/vaportiser-logo.svg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Jul 2025 20:13:18 +0100</lastBuildDate><atom:link href="http://localhost:35265/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Jul 2025 20:13:18 +0100</lastBuildDate><atom:link href="http://localhost:39209/vaportiser-news/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>New Vape Review</title>
-      <link>http://localhost:35265/posts/new-vape-review/</link>
+      <link>http://localhost:39209/vaportiser-news/posts/new-vape-review/</link>
       <pubDate>Sat, 12 Jul 2025 20:13:18 +0100</pubDate>
       
-      <guid>http://localhost:35265/posts/new-vape-review/</guid>
+      <guid>http://localhost:39209/vaportiser-news/posts/new-vape-review/</guid>
       <description>Sample article showcasing basic Markdown syntax and formatting for HTML elements.Sample article showcasing basic Markdown syntax and formatting for HTML elements.</description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
     
     <item>
       <title>My first blog</title>
-      <link>http://localhost:35265/posts/test/</link>
+      <link>http://localhost:39209/vaportiser-news/posts/test/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:35265/posts/test/</guid>
+      <guid>http://localhost:39209/vaportiser-news/posts/test/</guid>
       <description>Sample article showcasing basic Markdown syntax and formatting for HTML elements.</description>
       <content:encoded><![CDATA[<p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.</p>
 <h2 id="headings">Headings</h2>
@@ -213,10 +213,10 @@ This is pre text
     
     <item>
       <title>My first blog of 2025 and its a great one if i must say</title>
-      <link>http://localhost:35265/posts/my-first-post/</link>
+      <link>http://localhost:39209/vaportiser-news/posts/my-first-post/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:35265/posts/my-first-post/</guid>
+      <guid>http://localhost:39209/vaportiser-news/posts/my-first-post/</guid>
       <description>Sample article showcasing basic Markdown syntax and formatting for HTML elements.</description>
       <content:encoded><![CDATA[<p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.</p>
 <h2 id="headings">Headings</h2>
