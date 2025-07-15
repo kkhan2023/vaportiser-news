@@ -1,0 +1,122 @@
+baseURL: https://example.org/
+languageCode: en-us
+title: Vaportiser News
+theme: PaperModX
+
+pagination:
+  pagerSize: 10
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+
+# Taxonomy setup
+taxonomies:
+  category: categories
+  tag: tags
+
+# Sections to feature on home and in feeds
+mainSections:
+  - posts
+  - product-reviews
+  - guides
+  - industry-news
+
+disableAnchoredHeadings: true
+DateFormat: "2006-01-02"
+images:
+  - "/images/cover.png"
+
+useCustomAnalytics: true
+
+# UI
+defaultTheme: auto
+ShowShareButtons: true
+ShowReadingTime: true
+ShowWordCount: true
+displayFullLangName: true
+ShowPostNavLinks: true
+ShowBreadCrumbs: true
+ShowCodeCopyButtons: true
+ShowToc: true
+TocOpen: true
+TocSide: "right"
+EnableInstantClick: true
+EnableImageZoom: true
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+ignoreLogs:
+  - warning-goldmark-raw-html
+
+menu:
+  main:
+    - name: Home
+      url: /
+      weight: 1
+    - name: Product Reviews
+      url: /categories/product-reviews/
+      weight: 2
+    - name: Guides
+      url: /categories/guides/
+      weight: 3
+    - name: Industry News
+      url: /categories/industry-news/
+      weight: 4
+    - name: All Posts
+      url: /archives/
+      weight: 5
+    - name: Shop
+      url: https://vaportiser.co.uk/shop/
+      weight: 6
+      params:
+        external: true
+
+params:
+  env: production
+  description: "Vaping product reviews, guides, how-tos, and industry news."
+  author:
+    - Kasam Khan
+
+  homeInfoParams:
+    Title: "Sign up for our newsletter to get the latest vape news and tips in your inbox"
+    Content: "" 
+
+  logo:
+    icon: "images/vaportiser-logo.svg"
+    iconWidth: 40 
+    iconHeight: 40 
+    text: "Vaportiser News"
+
+  socialIcons:
+    - name: instagram
+      url: "<link>"
+    - name: facebook
+      url: "<link2>"
+    - name: twitter
+      url: "<link3>"
+    - name: youtube
+      url: "<link4>"
+
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+EnableInstantClick: true

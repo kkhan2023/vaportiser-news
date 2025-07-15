@@ -1,0 +1,94 @@
+<div class="sidebar-widgets">
+  <section class="sidebar-header-widget">
+    <div id="mc_embed_shell">
+  
+<div id="mc_embed_signup">
+    <form action="https://vaportiser.us13.list-manage.com/subscribe/post?u=835e09bdb6f1f90b1fce22420&amp;id=41781d059f&amp;f_id=003321eaf0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_self" novalidate="">
+        <div id="mc_embed_signup_scroll"><h3>Get the latest vape news and tips in your inbox 📫</h3>
+            
+            <div class="mc-field-group"><label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label><input type="email" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Johndoe@hotmail.com*" required="" value=""></div><div class="mc-field-group"><label for="mce-FNAME">First Name </label><input type="text" name="FNAME" class=" text" id="mce-FNAME" placeholder="John" value=""></div>
+        <div id="mce-responses" class="clear">
+            <div class="response" id="mce-error-response" style="display: none;"></div>
+            <div class="response" id="mce-success-response" style="display: none;"></div>
+        </div><div aria-hidden="true" style="position: absolute; left: -5000px;"><input type="text" name="b_835e09bdb6f1f90b1fce22420_41781d059f" tabindex="-1" value=""></div><div class="clear"><input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe"></div>
+    </div>
+</form>
+</div>
+<!-- Success Modal -->
+<div id="successModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>🎉 Thank you!</h2>
+    <p>You're now subscribed to Vaportiser News.</p>
+  </div>
+</div>
+
+</div>
+  </section>
+
+  <section class="recent-post-widget">
+    <h3>Recent Posts</h3>
+    <ul class="recent-posts-list">
+  {{ range first 4 (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+    <li class="recent-post-item">
+      <a href="{{ .RelPermalink }}">
+        {{ with .Params.featured_image }}
+          <img src="{{ . }}" alt="{{ $.Title }}" class="recent-post-thumb" loading="lazy">
+        {{ end }}
+        
+      </a>
+    </li>
+  {{ end }}
+</ul>
+
+  </section>
+
+  <section class="widget tags-widget">
+    <h3>Tags</h3>
+    <ul>
+      {{ range $name, $taxonomy := site.Taxonomies.tags }}
+        <li><a href="{{ "tags/" | relLangURL }}{{ $name | urlize }}">{{ $name }}</a></li>
+      {{ end }}
+    </ul>
+  </section>
+
+  <section class="widget categories-widget">
+    <h3>Categories</h3>
+    <ul>
+      {{ range $name, $taxonomy := site.Taxonomies.categories }}
+        <li><a href="{{ "categories/" | relLangURL }}{{ $name | urlize }}">{{ $name }}</a></li>
+      {{ end }}
+    </ul>
+  </section>
+</div>
+
+<script>
+  document.getElementById('mc-embedded-subscribe-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+
+    fetch("https://vaportiser.us13.list-manage.com/subscribe/post?u=835e09bdb6f1f90b1fce22420&id=41781d059f&f_id=003321eaf0", {
+      method: 'POST',
+      mode: 'no-cors',
+      body: formData
+    }).then(() => {
+      document.getElementById('successModal').style.display = 'block';
+      form.reset();
+    }).catch(() => {
+      alert('Sorry, something went wrong. Please try again later.');
+    });
+  });
+
+  // Modal behavior
+  document.querySelector('#successModal .close').addEventListener('click', () => {
+    document.getElementById('successModal').style.display = 'none';
+  });
+
+  window.addEventListener('click', function (e) {
+    const modal = document.getElementById('successModal');
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+</script>

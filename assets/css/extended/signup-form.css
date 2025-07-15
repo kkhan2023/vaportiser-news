@@ -1,0 +1,27 @@
+/* For Mobile Only */
+
+.mobile-signup-wrapper {
+  display: block;
+  position: relative;
+  min-height: 280px;
+  margin: var(--gap) 0 calc(var(--gap) * 2);
+  padding: 24px 30px;
+  border: 1px solid var(--primary);
+  border-radius: var(--radius);
+  background: #0052d4;
+  background: linear-gradient(to right, #0052d4, #4364f7, #6fb1fc);
+  color: #fff;
+  overflow: hidden;
+}
+
+.mobile-signup-container {
+  background: var(--entry);
+  padding: 24px 30px;
+  border-radius: var(--radius);
+}
+
+@media screen and (min-width: 1100px) {
+  .mobile-signup-wrapper {
+    display: none;
+  }
+}

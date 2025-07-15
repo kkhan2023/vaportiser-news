@@ -1,0 +1,23 @@
+{{- if (.Param "ShowBreadCrumbs") }}
+<div class="breadcrumbs">
+  <a href="{{ "/" | relLangURL }}">{{ i18n "home" | default "Home" }}</a>
+
+  {{- if .IsNode }}
+    {{- if .IsTaxonomy }}
+      {{ print " » " | safeHTML }}<a href="{{ "/categories/" | relLangURL }}">Categories</a>
+      {{ print " » " | safeHTML }}<span>{{ .Title }}</span>
+    {{- else if .IsTaxonomyTerm }}
+      {{ print " » " | safeHTML }}<span>Categories</span>
+    {{- end }}
+
+  {{- else if .IsPage }}
+    {{- $categories := .Params.categories }}
+    {{- if $categories }}
+      {{- $cat := index $categories 0 }}
+      {{ print " » " | safeHTML }}<a href="{{ "categories" | relLangURL }}/{{ $cat | urlize }}/">{{ $cat }}</a>
+    {{- end }}
+    {{ print " » " | safeHTML }}<span>{{ .Title }}</span>
+  {{- end }}
+</div>
+{{- end }}
+

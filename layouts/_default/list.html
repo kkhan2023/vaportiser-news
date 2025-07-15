@@ -1,0 +1,169 @@
+{{- define "main" }}
+
+{{ if .IsHome }}
+<section class="hero-wrapper">
+  <div class="hero-content-wrapper">
+    <h1>Vaportiser News - Vaping Guides, How-To Articles, and Industry Insights for Beginners and Advanced Vapers</h1>
+    <p>Breaking vape news, brutally honest reviews, and no-BS guides to help you navigate the latest gear and trends in the industry — crafted by enthusiasts, trusted by pros.</p>
+    <div class="hero-social-icons">
+      {{ partial "social_icons.html" (dict "icons" site.Params.socialIcons "svg" $.Site.Data.svg "MaskedEmail" site.Params.MaskedEmail "Email" site.Params.Email) }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{/* ─── FEATURED POSTS (MOVED HERE) ─── */}}
+{{- if .IsHome }}
+  {{- $featured := where site.RegularPages "Params.featured" true }}
+  {{- if gt (len $featured) 0 }}
+    <div class="featured-posts-section-wrapper"> <h2 class="featured-posts-heading">Featured Posts</h2>
+      <div class="post-grid featured-grid">
+        {{ range $featured }}
+        <article class="post-entry featured-entry">
+          {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" false) }}
+          <header class="entry-header">
+            <h3>{{ .Title }}</h3>
+          </header>
+          {{ if (ne (.Param "hideSummary") true) }}
+          <section class="entry-content">
+            <p>{{ .Description | plainify | htmlUnescape }}</p>
+          </section>
+          {{ end }}
+          <footer class="entry-footer">
+            {{ partial "post_meta.html" . }}
+          </footer>
+          <a class="entry-link" href="{{ .Permalink }}" aria-label="post link to {{ .Title | plainify }}"></a>
+        </article>
+        {{ end }}
+      </div>
+    </div>
+  {{- end }}
+{{- end }}
+
+<div class="main-layout">
+  <main class="main-content">
+    {{- if (and site.Params.profileMode.enabled .IsHome) }}
+      {{- partial "index_profile.html" . }}
+    {{- else }}
+
+    {{- if not .IsHome | and .Title }}
+      <header class="page-header">
+        {{- partial "breadcrumbs.html" . }}
+        <h1>
+          {{- if eq .Kind "term" -}}{{- .Data.Singular }}: {{ end -}} {{ .Title -}}
+        </h1>
+        {{- if .Description }}
+        <div class="post-description">{{ .Description | markdownify }}</div>
+        {{- end }}
+        {{- partial "inline_links.html" . }}
+      </header>
+    {{- end }}
+
+{{ if .IsHome }}
+   <div class="cta-vaportiser-shop">
+    <div class="cta-vaportiser-content">
+      <img src="/images/vaportiser-logo.svg" alt="logo">
+      <h2>Explore our online vape clearance outlet store</h2>
+      <p>Discover incredible deals on vape hardware, pre-filled kits, e-liquids, accessories & more.</p>
+      <a href="https://vaportiser.co.uk/shop" class="cta-button" target="_blank" rel="noopener noreferrer">
+        Explore store
+      </a>
+    </div>
+  </div>
+{{- end }}
+
+    {{- if .Content }}
+      <div class="post-content">
+        {{- if not (.Param "disableAnchoredHeadings") }}
+          {{- partial "anchored_headings.html" .Content -}}
+        {{- else }}
+          {{ .Content }}
+        {{- end }}
+      </div>
+    {{- end }}
+
+    {{- $pages := .Pages }}
+    {{- if .IsHome }}
+      {{- $pages = where site.RegularPages "Section" "in" site.Params.mainSections }}
+    {{- end }}
+    {{- $pages = where $pages "Params.hidden" "!=" true }}
+
+    {{ $paginator := "" }}
+    {{ if (.Param "paginate") }}
+      {{- $paginator = .Paginate $pages (.Param "paginate") }}
+    {{ else }}
+      {{- $paginator = .Paginate $pages }}
+    {{ end }}
+
+    {{- if and .IsHome site.Params.homeInfoParams (eq $paginator.PageNumber 1) }}
+      {{- partial "home_info.html" . }}
+    {{- end }}
+
+    {{- $term := .Data.Term }}
+
+    {{/* ─── MAIN POSTS ─── */}}
+    <h2 class="latest-posts-heading">Latest Posts<a href="/archives" class="view-link">View All</a></h2>
+    <div class="post-grid">
+      {{- range $index, $page := $paginator.Pages }}
+        {{- $class := "post-entry" }}
+        {{- $user_preferred := or site.Params.disableSpecial1stPost site.Params.homeInfoParams }}
+        {{- if (and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) (not $user_preferred)) }}
+          {{- $class = "first-entry" }}
+        {{- else if $term }}
+          {{- $class = "post-entry tag-entry" }}
+        {{- end }}
+
+        <article class="{{ $class }}">
+          {{- $isHidden := (site.Params.cover.hidden | default site.Params.cover.hiddenInList) }}
+          {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
+          <header class="entry-header">
+            <h3>
+              {{- .Title }}
+              {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[Draft]</span></sup>{{- end }}
+              {{- if .Weight }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[Pinned]</span></sup>{{- end }}
+            </h3>
+          </header>
+          {{- if (ne (.Param "hideSummary") true) }}
+          <section class="entry-content">
+            {{ if .Description }}
+              <p>{{ .Description | plainify | htmlUnescape }}</p>
+            {{ else }}
+              <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+            {{ end }}
+          </section>
+          {{- end }}
+          {{- if not (.Param "hideMeta") }}
+          <footer class="entry-footer">{{- partial "post_meta.html" . -}}</footer>
+          {{- end }}
+          <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+        </article>
+      {{- end }}
+    </div>
+
+   {{- if .IsHome }}
+  {{ partial "youtube_grid.html" . }}
+  {{ partial "signup-form.html" . }}
+{{- end }}
+
+    {{- if gt $paginator.TotalPages 1 }}
+    <footer class="page-footer">
+      <nav class="pagination">
+        {{- if $paginator.HasPrev }}
+        <a class="prev" href="{{ $paginator.Prev.URL | absURL }}">« {{ i18n "prev_page" }}</a>
+        {{- end }}
+        {{- if $paginator.HasNext }}
+        <a class="next" href="{{ $paginator.Next.URL | absURL }}">{{ i18n "next_page" }} »</a>
+        {{- end }}
+      </nav>
+    </footer>
+    {{- end }}
+
+    {{- end }}
+  </main>
+
+  <aside class="sidebar">{{- partial "sidebar.html" . }}</aside>
+</div>
+
+{{- end }}
+
+ 

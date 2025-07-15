@@ -1,0 +1,85 @@
+{{- define "main" -}}
+
+<div class="main-layout">
+  <main class="main-content">
+
+    <article class="post-single">
+      <header class="post-header">
+        {{ partial "breadcrumbs.html" . }}
+
+        {{- if eq .Type "newsletter" }}
+          {{ partial "newsletter_brand.html" . }}
+        {{- end }}
+
+        <h1 class="post-title">
+          {{- if eq .Type "newsletter" }}
+            {{ replace .Title (.Param "titlePrefix") (.Param "titlePrefixReplace") }}
+          {{- else }}
+            {{ .Title }}
+          {{- end }}
+          {{ if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{ end }}
+        </h1>
+
+        {{ if .Description }}
+        <div class="post-description">{{ .Description }}</div>
+        {{ end }}
+
+        {{ if not (.Param "hideMeta") }}
+        <div class="post-meta">
+          {{ partial "post_meta.html" . }}
+        </div>
+        {{ end }}
+      </header>
+
+      {{- $isHidden := .Params.cover.hidden | default site.Params.cover.hiddenInSingle | default site.Params.cover.hidden }}
+      {{ partial "cover.html" (dict "cxt" . "IsHome" false "isHidden" $isHidden) }}
+
+      {{ if .Param "ShowToc" }}
+        {{ partial "toc.html" . }}
+      {{ end }}
+
+      {{ if .Content }}
+      <div class="post-content">
+        {{ if not (.Param "disableAnchoredHeadings") }}
+          {{ partial "anchored_headings.html" .Content }}
+        {{ else }}
+          {{ .Content }}
+        {{ end }}
+      </div>
+      {{ end }}
+
+      <footer class="post-footer">
+        {{ if .Param "socialLinks" }}
+          {{ partial "social_links.html" . }}
+        {{ end }}
+
+        {{ if .Param "ShowPostNavLinks" }}
+          {{ partial "post_nav_links.html" . }}
+        {{ end }}
+
+        {{ if eq .Type "newsletter" }}
+          <div class="newsletter-sub">
+            <div class="notice">
+              {{ if site.Params.newsletter.notice.usePartial }}
+                {{ partial "newsletter_notice.html" }}
+              {{ else }}
+                {{ site.Params.newsletter.notice.content | default "Thanks for reading, if you like it, please subscribe below." }}
+              {{ end }}
+            </div>
+            {{ partial "newsletter_sub_form.html" }}
+          </div>
+        {{ end }}
+      </footer>
+
+      {{ if not (.Param "noComments") }}
+        <div class="comments-separator"></div>
+        {{ partial "comments.html" . }}
+      {{ end }}
+    </article>
+
+  </main>
+
+  <aside class="sidebar">{{- partial "sidebar.html" . }}</aside>
+</div>
+
+{{- end -}}
